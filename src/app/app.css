@@ -1,0 +1,42 @@
+.app {
+  display: flex;
+  gap: 20px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutter-xs);
+
+  position: relative;
+  padding-right: var(--gutter-xs);
+}
+
+.nav::after {
+  width: 1px;
+  height: 100%;
+  content: '';
+  background-color: gray;
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+
+.nav > * {
+  display: flex;
+  align-items: center;
+}
+
+.nav > *::after {
+  content: '👈';
+  visibility: hidden;
+}
+
+.router-link-exact-active {
+  color: coral;
+  text-decoration: none;
+}
+
+.router-link-exact-active::after {
+  visibility: visible !important;
+}

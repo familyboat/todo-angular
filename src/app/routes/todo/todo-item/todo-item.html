@@ -1,0 +1,22 @@
+<li class="item">
+  <span>{{ index() }}.</span>
+  @if (!isEditing()) {
+  <span [class.done]="isDone()" [class.deleted]="isDeleted()">
+    {{ todo().task }}
+  </span>
+  } @if (isEditing()) {
+  <input type="text" [formControl]="task" />
+  }
+  <span> 创建于 {{ serializeUTC(todo().createdAt) }} </span>
+  @if (isCreated() && !isEditing()) {
+  <button type="button" (click)="done()">完成</button>
+  } @if (isCreated() && !isEditing()) {
+  <button type="button" (click)="deleted()">删除</button>
+  } @if (!isCreated()) {
+  <button type="button" (click)="undo()">回退</button>
+  } @if (isCreated()) {
+  <button type="button" (click)="flipEditingStatus()">
+    {{ isEditing() ? '确认' : '编辑' }}
+  </button>
+  }
+</li>

@@ -1,0 +1,17 @@
+.item {
+  display: flex;
+  gap: var(--gutter-xs);
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.done {
+  text-decoration-line: line-through;
+  text-decoration-color: coral;
+}
+
+.deleted {
+  text-decoration-line: line-through;
+  text-decoration-style: wavy;
+  text-decoration-color: coral;
+}

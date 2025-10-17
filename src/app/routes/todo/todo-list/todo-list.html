@@ -1,0 +1,18 @@
+<ul class="list">
+  <header key="created">已创建：</header>
+  @for (todo of (createdTodosStore | async); track todo.uuid;) {
+  <app-todo-item [index]="$index" [todo]="todo"></app-todo-item>
+  }
+  <hr key="created-hr" />
+
+  <header key="done">已完成：</header>
+  @for (todo of (doneTodosStore | async); track todo.uuid;) {
+  <app-todo-item [index]="$index" [todo]="todo"></app-todo-item>
+  }
+  <hr key="done-hr" />
+
+  <header key="deleted">已删除：</header>
+  @for (todo of (deletedTodosStore | async); track todo.uuid;) {
+  <app-todo-item [index]="$index" [todo]="todo"></app-todo-item>
+  }
+</ul>
