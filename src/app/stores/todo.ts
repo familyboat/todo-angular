@@ -2,6 +2,7 @@ import { BehaviorSubject, map } from 'rxjs';
 import {
   addTodoToDb,
   editTaskInTodoInDb,
+  getAllTodosFromDb,
   markTodoAsCreatedInDb,
   markTodoAsDeletedInDb,
   markTodoAsDoneInDb,
@@ -185,4 +186,12 @@ export function markTodoAsCreated(uuid: string) {
     todosStore.next(todos);
     markTodoAsCreatedInDb(uuid);
   }
+}
+
+/**
+ * 从数据库中加载 todo 列表
+ */
+export async function loadFromDb() {
+  const todos = await getAllTodosFromDb();
+  todosStore.next(todos);
 }

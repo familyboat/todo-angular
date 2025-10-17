@@ -1,6 +1,11 @@
 import { AsyncPipe } from '@angular/common';
-import { Component } from '@angular/core';
-import { createdTodosStore, deletedTodosStore, doneTodosStore } from '../../../stores/todo';
+import { Component, OnInit } from '@angular/core';
+import {
+  createdTodosStore,
+  deletedTodosStore,
+  doneTodosStore,
+  loadFromDb,
+} from '../../../stores/todo';
 import { TodoItem } from '../todo-item/todo-item';
 
 @Component({
@@ -9,8 +14,12 @@ import { TodoItem } from '../todo-item/todo-item';
   templateUrl: './todo-list.html',
   styleUrl: './todo-list.css',
 })
-export class TodoList {
+export class TodoList implements OnInit {
   protected readonly createdTodosStore = createdTodosStore;
   protected readonly doneTodosStore = doneTodosStore;
   protected readonly deletedTodosStore = deletedTodosStore;
+
+  ngOnInit(): void {
+    loadFromDb();
+  }
 }
