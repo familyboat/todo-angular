@@ -7,10 +7,11 @@ import {
   loadFromDb,
 } from '../../../stores/todo';
 import { TodoItem } from '../todo-item/todo-item';
+import { NgAutoAnimateDirective } from 'ng-auto-animate';
 
 @Component({
   selector: 'app-todo-list',
-  imports: [AsyncPipe, TodoItem],
+  imports: [AsyncPipe, TodoItem, NgAutoAnimateDirective],
   templateUrl: './todo-list.html',
   styleUrl: './todo-list.css',
 })

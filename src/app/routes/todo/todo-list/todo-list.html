@@ -1,4 +1,4 @@
-<ul class="list">
+<ul class="list" auto-animate>
   <header key="created">已创建：</header>
   @for (todo of (createdTodosStore | async); track todo.uuid;) {
   <app-todo-item [index]="$index" [todo]="todo"></app-todo-item>
